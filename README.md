@@ -1,11 +1,11 @@
-# Klasterisasi Negara Penerima Bantuan oleh organisasi HELP Internasional menggunakan Algoritma K-Means
+# Klasterisasi Negara Penerima Bantuan oleh Organisasi HELP Internasional menggunakan Algoritma K-Means
 
 HELP International adalah LSM kemanusiaan internasional yang berkomitmen untuk memerangi kemiskinan dan menyediakan fasilitas serta bantuan dasar bagi masyarakat di negaranegara terbelakang saat terjadi bencana dan bencana alam. Saat ini, lembaga tersebut telah berhasil mengumpulkan sekitar $10 juta dan berencana untuk memberikan bantuan kepada negara yang membutuhkan. Proyek ini bertujuan untuk membantu CEO HELP Internasional untuk memutuskan 10 negara yang memiliki kondisi social ekonomi dan kesehatan ‘terburuk’ sehingga layak diberikan bantuan.
 
 ## DAFTAR ISI
 1. [DATASET](#dataset)
-2. [EXPLANATORY DATA ANALYSIS](#explanatory_data_analysisi)
-3. [DATA PREPROCESSING](#data_preprocessing)
+2. [EXPLANATORY DATA ANALYSIS](#explanatory-data-analysis)
+3. [DATA PREPROCESSING](#data-preprocessing)
 4. [MODELLING](#modelling)
 5. [CONCLUSION](#conclusion)
 

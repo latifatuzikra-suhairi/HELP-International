@@ -72,11 +72,72 @@ HELP International adalah LSM kemanusiaan internasional yang berkomitmen untuk m
 1. Outlier Handling
    Untuk mengatasi data pencilan/nilai outliers yang nilainya sangat jauh dari central tendency. Hal ini dilakukan agar saat melakukan clustering tidak ada data yang letak clusternya terlalu menyebar/jauh dari titik point pusat penyebarannya. Diterapkan pada 4 feature yang digunakan:
    1. Outlier handling pada feature `inflasi`
+
       [Outlier Inflasi](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/OutlierHandling_Inflasi.png)
-   3. Outlier handling pada feature `kesehatan`
-   
-3. Data Scaling
-   Untuk membuat data numerik pada dataset memiliki rentang nilai yang sama, sehingga tidak ada lagi satu feature yang mendominasi feature lainnya. Menggunakan metode standardisasi dengan StandardScaler
+
+      nilai outliers ini akan dihapus dengan menggunakan konsep nilai lower bound dan upper bound.
+      
+   2. Outlier handling pada feature `kesehatan`
+
+      [Outlier Kesehatan](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/OutlierHandling_Kesehatan.png)
+
+      nilai outliers ini akan dihapus dengan menggunakan konsep nilai lower bound dan upper bound.
+      
+   3. Outlier handling pada feature `pendapatan`
+
+      [Outlier Pendapatan](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/OutlierHandling_Pendapatan.png)
+
+      nilai outliers ini akan dihapus dengan menggunakan konsep nilai lower bound dan upper bound.
+      
+   4. Outlier handling pada feature `selisih ekspor impor`
+
+      [Outlier Selisih Ekspor Impor](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/OutlierHandling_Ekspor_Impor.png)
+
+      Pada kolom selisih ekspor impor terlihat banyak nilai outliers, terutama yang bernilai negative (artinya impor lebih besar dari ekspor).  Ketika sebuah negara memiliki nilai selisih ekspor-impor negative yang besar, dapat dikatakan bahwa negara tersebut berada dalam keadaan ekonomi yang  ‘buruk’.  Jika data dengan nilai outliers dihapus, tentu akan mempengaruhi pengambilan kesimpulan negara dengan kondisi ‘buruk’. Untuk itu, penulis tidak menghapus data outliers pada feature Selisih_EI.
+
+2. Data Scaling
+   Untuk membuat data numerik pada dataset memiliki rentang nilai yang sama, sehingga tidak ada lagi satu feature yang mendominasi feature lainnya. Menggunakan metode standardisasi dengan StandardScaler.
    ```python
-   
+      from sklearn.preprocessing import StandardScaler
+
+      sc = StandardScaler()
+      df_std2 = sc.fit_transform(df.astype(float))
    ```
+
+## MODELLING
+1. Clustering feature `Selisih Ekpor Impor` dan `Inflasi`
+   Feature tersebut dimodelkan dengan algoritma `K-Means` dengan penentuan K optimal berdasarkan `elbow method`. Elbow method yang didapatkan:
+
+   [Elbow 1](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/Elbow_SelisihEI_Inflasi.png)
+
+   Lingkaran merah menunjukkan jumlah optimal cluster untuk feature `Selisih Ekpor Impor` dan `Inflasi`, yakni di angka **4 klaster**
+
+   **Hasil Clustering:**
+
+   [Clustering 1](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/Clustering_SelisihEI_Inflasi.png)
+
+   **Penjelasan:**
+   Dari visualisasi tersebut, terdapat empat cluster yaitu cluster 0, 1, 2, 3. Namun, cluster 2 tidak terlalu banyak anggota clusternya dikarenakan karena nilai outliers dari selisih_Ekspor Impor tidak dihapus (ada data yang menyimpang sangat jauh). Dengan mempertimbangkan nilai pendapatan tiap negara dan mengacu ke aturan inflasi yang dikeluarkan oleh Federal Reserve USA, batas minimum untuk inflasi adalah sebesar 2%. Sesungguhnya, jika nilai inflasi terlalu rendah, sesuai hukum permintaan dan penawaran tarif barang dan jasa menjadi sangat murah, sehingga tidak kompetitif. Cluster 3 menunjukkan inflasi yang tinggi, tetapi dibarengi dengan nilai ekspor yang lebih tinggi dibandingkan dengan cluster 0. Hal ini terlihat bahwa nilai ekspor cluster 0 jauh jika dibandingkan cluster 3. Fenomena ini membuktikan pernyataan diatas, bahwa inflasi yang terlalu rendah tidak akan baik untuk negaranya. Untuk itu, penulis mengambil cluster 0 sebagai bahan pertimbangan negara bantuan HELP International.  
+   
+3. Clustering feature `Pendapatan` dan `Kesehatan`
+   Feature tersebut dimodelkan dengan algoritma `K-Means` dengan penentuan K optimal berdasarkan `elbow method`. Elbow method yang didapatkan:
+   
+   [Elbow 2](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/Elbow_Pendapatan_Kesehatan.png)
+
+   Lingkaran merah menunjukkan jumlah optimal cluster untuk feature `Pendapatan` dan `Kesehatan`, yakni di angka **6 klaster**
+
+   **Hasil Clustering:**
+
+   [Clustering 2](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/Clustering_Pendapatan_Kesehatan.png)
+
+   **Penjelasan:**
+   Dari visualisasi tersebut, terdapat enam cluster yaitu cluster 0, 1, 2, 3, 4, 5. Logikanya, semakin kecil pendapatan seseorang, mereka akan cenderung untuk menghemat pengeluaran untuk berbelanja, salah satunya pengeluaran untuk kesehatan. Hal ini menunjukkan kejadian yang terjadi di negara ‘buruk’ social ekonomi dan kesehatannya.  Dengan alasan ini, clustering yang diambil adalah cluster 0.
+
+## CONCLUSION
+1. Ketika nilai inflasi terlalu rendah, sesuai hukum permintaan dan penawaran tarif barang dan jasa menjadi sangat murah, sehingga tidak kompetitif. Akibatnya, pendapatan pun ikut menurun mengikuti laju harga barang di masyarakat. Pendapatan yang rendah berkontribusi pada tingkat konsumsi yang rendah pula, sehingga orang akan cenderung hemat dalam berbelanja, termasuk dalam bidang kesehatan.
+2. Setelah menetapkan cluster mana yang akan diambil dari kedua kelompok feature clustering tersebut, dengan berbagai pertimbangan yang telah dijelaskan sebelumnya, penulis 
+menghubungkan kondisi kedua cluster tersebut. Setelah penggabungan kedua cluster, data diurutkan berdasarkan pendapatan secara ascending dan diambil 10 negara pertama. Listing tabel dibawah menjadi kelompok negara yang dianggap pantas untuk menerima bantuan pendanaan 10 Juta Dollar oleh organisasi HELP International.
+
+[10 Negara Bantuan](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/10Negara.png)
+
+Data ini juga merefleksikan dunia nyata dimana negara-negara Afrika diatas, kecuali Haiti, tergolong kelompok ekonomi negara terbelakang (Least Developed Countries, LDCs). 

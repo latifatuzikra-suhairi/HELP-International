@@ -4,8 +4,8 @@ HELP International adalah LSM kemanusiaan internasional yang berkomitmen untuk m
 
 ## DAFTAR ISI
 1. [DATASET](#dataset)
-2. [EXPLANATORY DATA ANALYSIS](#explanatory-data-analysisi)
-3. [DATA PREPROCESSING](#data-preprocessing)
+2. [EXPLANATORY DATA ANALYSIS](#explanatory_data_analysisi)
+3. [DATA PREPROCESSING](#data_preprocessing)
 4. [MODELLING](#modelling)
 5. [CONCLUSION](#conclusion)
 

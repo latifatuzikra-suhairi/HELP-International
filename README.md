@@ -25,7 +25,7 @@ HELP International adalah LSM kemanusiaan internasional yang berkomitmen untuk m
 1. Analisis Univariate
    Untuk melihat sebaran data dan nilai dominan tiap feature data berada di range berapa.
 
-   [Analysis Univariate](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/Univariate_Analysis.png)
+   [Analysis Univariate](https://raw.githubusercontent.com/latifatuzikra-suhairi/HELP-international/main/static/Univariate_Analysis.png)
 
    **Insight:** 
     a. Kematian_anak. Dari 167 negara, angka kematian anak dominan berada di range 0-25. 
@@ -41,7 +41,7 @@ HELP International adalah LSM kemanusiaan internasional yang berkomitmen untuk m
 2. Analisis Bivariate
    Untuk melihat hubungan antara dua feature: `GDPperkapita` dan `pendapatan`.
    
-   [Analysis Bivariate](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/Bivariate_Analysis.png)
+   [Analysis Bivariate](https://raw.githubusercontent.com/latifatuzikra-suhairi/HELP-international/main/static/Bivariate_Analysis.png)
 
    **Insight:**
     Semakin tinggi GDPperkapita akan berbanding lurus dengan kenaikan pendapatan. Hal ini dikarenakan GDPperkapita, dalam ilmu ekonomi, menjadi variabel penentu untuk tingkat laju konsumsi masyarakat yang sangat dipengaruhi oleh pendapatan/pemasukan seseorang. 
@@ -49,7 +49,7 @@ HELP International adalah LSM kemanusiaan internasional yang berkomitmen untuk m
 3. Analisis Multivariate
    Untuk melihat hubungan antara satu feature dengan beberapa feature lainnya. Disini dianalisis feature kesehatan dengan harapan hidup, jumlah fertiliti, kematian anak.
 
-   [Analysis Multivariate](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/Multivariate_Analysis.png)
+   [Analysis Multivariate](https://raw.githubusercontent.com/latifatuzikra-suhairi/HELP-international/main/static/Multivariate_Analysis.png)
 
    **Insight:**
    1. Kesehatan – harapan_hidup. Sekilas terlihat bahwa kesehatan tidak terlalu berdampak kepada harapan_hidup karena banyak factor external yang tidak terekam di dalam data yang dimiliki.
@@ -61,7 +61,7 @@ HELP International adalah LSM kemanusiaan internasional yang berkomitmen untuk m
 
   Dari analisis diatas, dapat dilihat hubungan antar feature:
 
-  [Feature Relation](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/Feature_Relation.png)
+  [Feature Relation](https://raw.githubusercontent.com/latifatuzikra-suhairi/HELP-international/main/static/Feature_Relation.png)
 
   **Penjelasan:**
   - Ketika suatu negara memiliki selisih nilai ekspor dan impor yang bernilai negative, artinya negara harus menyediakan uang banyak untuk membayar barang impor tersebut. Jika terlalu banyak impor, nilai inflasi akan tinggi. Akibat penggunaan uang untuk barang impor, biaya konsumsi pemerintah akan bertambah dan berdampak pada nilai GDP yang semakin kecil. GDP sendiri didapatkan dari biaya konsumsi sisa + investment + pengeluaran pemerintah + (biaya ekspor – biaya impor). Secara tidak langsung juga berdampak pada GDPpercapita = GDP/total populasi negara. Ketika nilai GDPperkapita rendah, tentu akan berdampak lurus pada pendapatan seseorang. Ketika seseorang memiliki pendapatan yang rendah, mereka akan enggan untuk mengeluarkan uang untuk biaya kesehatan. Ketika biaya kesehatan yang dikeluarkan kecil, maka akan berdampak pada harapan_hidup, kematian_anak, dan jumlah_fertiliti.
@@ -73,25 +73,25 @@ HELP International adalah LSM kemanusiaan internasional yang berkomitmen untuk m
    Untuk mengatasi data pencilan/nilai outliers yang nilainya sangat jauh dari central tendency. Hal ini dilakukan agar saat melakukan clustering tidak ada data yang letak clusternya terlalu menyebar/jauh dari titik point pusat penyebarannya. Diterapkan pada 4 feature yang digunakan:
    1. Outlier handling pada feature `inflasi`
 
-      [Outlier Inflasi](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/OutlierHandling_Inflasi.png)
+      [Outlier Inflasi](https://raw.githubusercontent.com/latifatuzikra-suhairi/HELP-international/main/static/OutlierHandling_Inflasi.png)
 
       nilai outliers ini akan dihapus dengan menggunakan konsep nilai lower bound dan upper bound.
       
    2. Outlier handling pada feature `kesehatan`
 
-      [Outlier Kesehatan](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/OutlierHandling_Kesehatan.png)
+      [Outlier Kesehatan](https://raw.githubusercontent.com/latifatuzikra-suhairi/HELP-international/main/static/OutlierHandling_Kesehatan.png)
 
       nilai outliers ini akan dihapus dengan menggunakan konsep nilai lower bound dan upper bound.
       
    3. Outlier handling pada feature `pendapatan`
 
-      [Outlier Pendapatan](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/OutlierHandling_Pendapatan.png)
+      [Outlier Pendapatan](https://raw.githubusercontent.com/latifatuzikra-suhairi/HELP-international/main/static/OutlierHandling_Pendapatan.png)
 
       nilai outliers ini akan dihapus dengan menggunakan konsep nilai lower bound dan upper bound.
       
    4. Outlier handling pada feature `selisih ekspor impor`
 
-      [Outlier Selisih Ekspor Impor](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/OutlierHandling_Ekspor_Impor.png)
+      [Outlier Selisih Ekspor Impor](https://raw.githubusercontent.com/latifatuzikra-suhairi/HELP-international/main/static/OutlierHandling_Ekspor_Impor.png)
 
       Pada kolom selisih ekspor impor terlihat banyak nilai outliers, terutama yang bernilai negative (artinya impor lebih besar dari ekspor).  Ketika sebuah negara memiliki nilai selisih ekspor-impor negative yang besar, dapat dikatakan bahwa negara tersebut berada dalam keadaan ekonomi yang  ‘buruk’.  Jika data dengan nilai outliers dihapus, tentu akan mempengaruhi pengambilan kesimpulan negara dengan kondisi ‘buruk’. Untuk itu, penulis tidak menghapus data outliers pada feature Selisih_EI.
 
@@ -108,13 +108,13 @@ HELP International adalah LSM kemanusiaan internasional yang berkomitmen untuk m
 1. Clustering feature `Selisih Ekpor Impor` dan `Inflasi`
    Feature tersebut dimodelkan dengan algoritma `K-Means` dengan penentuan K optimal berdasarkan `elbow method`. Elbow method yang didapatkan:
 
-   [Elbow 1](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/Elbow_SelisihEI_Inflasi.png)
+   [Elbow 1](https://raw.githubusercontent.com/latifatuzikra-suhairi/HELP-international/main/static/Elbow_SelisihEI_Inflasi.png)
 
    Lingkaran merah menunjukkan jumlah optimal cluster untuk feature `Selisih Ekpor Impor` dan `Inflasi`, yakni di angka **4 klaster**
 
    **Hasil Clustering:**
 
-   [Clustering 1](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/Clustering_SelisihEI_Inflasi.png)
+   [Clustering 1](https://raw.githubusercontent.com/latifatuzikra-suhairi/HELP-international/main/static/Clustering_SelisihEI_Inflasi.png)
 
    **Penjelasan:**
    Dari visualisasi tersebut, terdapat empat cluster yaitu cluster 0, 1, 2, 3. Namun, cluster 2 tidak terlalu banyak anggota clusternya dikarenakan karena nilai outliers dari selisih_Ekspor Impor tidak dihapus (ada data yang menyimpang sangat jauh). Dengan mempertimbangkan nilai pendapatan tiap negara dan mengacu ke aturan inflasi yang dikeluarkan oleh Federal Reserve USA, batas minimum untuk inflasi adalah sebesar 2%. Sesungguhnya, jika nilai inflasi terlalu rendah, sesuai hukum permintaan dan penawaran tarif barang dan jasa menjadi sangat murah, sehingga tidak kompetitif. Cluster 3 menunjukkan inflasi yang tinggi, tetapi dibarengi dengan nilai ekspor yang lebih tinggi dibandingkan dengan cluster 0. Hal ini terlihat bahwa nilai ekspor cluster 0 jauh jika dibandingkan cluster 3. Fenomena ini membuktikan pernyataan diatas, bahwa inflasi yang terlalu rendah tidak akan baik untuk negaranya. Untuk itu, penulis mengambil cluster 0 sebagai bahan pertimbangan negara bantuan HELP International.  
@@ -122,13 +122,13 @@ HELP International adalah LSM kemanusiaan internasional yang berkomitmen untuk m
 3. Clustering feature `Pendapatan` dan `Kesehatan`
    Feature tersebut dimodelkan dengan algoritma `K-Means` dengan penentuan K optimal berdasarkan `elbow method`. Elbow method yang didapatkan:
    
-   [Elbow 2](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/Elbow_Pendapatan_Kesehatan.png)
+   [Elbow 2](https://raw.githubusercontent.com/latifatuzikra-suhairi/HELP-international/main/static/Elbow_Pendapatan_Kesehatan.png)
 
    Lingkaran merah menunjukkan jumlah optimal cluster untuk feature `Pendapatan` dan `Kesehatan`, yakni di angka **6 klaster**
 
    **Hasil Clustering:**
 
-   [Clustering 2](https://github.com/latifatuzikra-suhairi/HELP-international/blob/main/static/Clustering_Pendapatan_Kesehatan.png)
+   [Clustering 2](https://raw.githubusercontent.com/latifatuzikra-suhairi/HELP-international/main/static/Clustering_Pendapatan_Kesehatan.png)
 
    **Penjelasan:**
    Dari visualisasi tersebut, terdapat enam cluster yaitu cluster 0, 1, 2, 3, 4, 5. Logikanya, semakin kecil pendapatan seseorang, mereka akan cenderung untuk menghemat pengeluaran untuk berbelanja, salah satunya pengeluaran untuk kesehatan. Hal ini menunjukkan kejadian yang terjadi di negara ‘buruk’ social ekonomi dan kesehatannya.  Dengan alasan ini, clustering yang diambil adalah cluster 0.
